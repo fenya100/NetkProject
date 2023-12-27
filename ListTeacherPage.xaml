@@ -1,0 +1,58 @@
+﻿<Page x:Class="NetkProject.ListTeacherPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NetkProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListTeacherPage" Background="Beige"
+      Visibility="Visible"
+      IsEnabledChanged="Page_IsEnabledChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock HorizontalAlignment="Left" Margin="52,28,0,0" TextWrapping="Wrap" Text="Список преподавателей" VerticalAlignment="Top" Height="30" Width="293" FontSize="24"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="441,20,0,0" VerticalAlignment="Top" Width="174" Height="43" FontSize="24" Click="Button_Click_1"/>
+
+        <DataGrid Name="DgrTeacher" Grid.Row="1" FontSize="16"
+                  AutoGenerateColumns="False" IsReadOnly="True"
+                  Background="DarkGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО преподавателя"
+                                    Binding="{Binding Name}"
+                                    Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Должность"
+                                    Binding="{Binding Post}"
+                                    Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стаж"
+                                    Binding="{Binding Expereince}"
+                                    Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Адрес"
+                                    Binding="{Binding Adress}"
+                                    Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="ИЗМЕНИТЬ"  
+                                  Name="BtnEdit" 
+                                    Click="BtnEdit_Click">
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="21,11,0,0" Grid.Row="2" VerticalAlignment="Top" Width="161" Height="38" Name="Button1" FontSize="24" Click="Button1_Click"/>
+        <Button Content="Обновить" HorizontalAlignment="Left" Margin="226,11,0,0" Grid.Row="2" VerticalAlignment="Top" Width="193" FontSize="24" Name="Button2" Click="Button2_Click"/>
+        <Button Content="Удалить" HorizontalAlignment="Left" Margin="466,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="194" Height="36" Name="Button3" FontSize="24" Click="Button3_Click"/>
+
+    </Grid>
+</Page>
